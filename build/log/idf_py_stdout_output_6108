@@ -1,0 +1,232 @@
+ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0x28 (SPI_FAST_FLASH_BOOT)
+Saved PC:0x40048ee2
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2810,len:0x15a0
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xd20
+load:0x403cb700,len:0x2f00
+entry 0x403c8928
+[0;32mI (26) boot: ESP-IDF v5.4.1-dirty 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time May  7 2025 11:04:15[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (27) boot: chip revision: v0.2[0m
+[0;32mI (30) boot: efuse block revision: v1.3[0m
+[0;32mI (34) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (38) boot.esp32s3: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32s3: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3c020020 size=0b954h ( 47444) map[0m
+[0;32mI (97) esp_image: segment 1: paddr=0001b97c vaddr=3fc93800 size=02a08h ( 10760) load[0m
+[0;32mI (100) esp_image: segment 2: paddr=0001e38c vaddr=40374000 size=01c8ch (  7308) load[0m
+[0;32mI (105) esp_image: segment 3: paddr=00020020 vaddr=42000020 size=1ba58h (113240) map[0m
+[0;32mI (131) esp_image: segment 4: paddr=0003ba80 vaddr=40375c8c size=0dac4h ( 56004) load[0m
+[0;32mI (144) esp_image: segment 5: paddr=0004954c vaddr=600fe100 size=0001ch (    28) load[0m
+[0;32mI (150) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (150) boot: Disabling RNG early entropy source...[0m
+[0;32mI (161) cpu_start: Multicore app[0m
+[0;32mI (171) cpu_start: Pro cpu start user code[0m
+[0;32mI (171) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (171) app_init: Application information:[0m
+[0;32mI (171) app_init: Project name:     sensor[0m
+[0;32mI (175) app_init: App version:      f670056-dirty[0m
+[0;32mI (179) app_init: Compile time:     May  7 2025 11:03:42[0m
+[0;32mI (184) app_init: ELF file SHA256:  3458e28ad...[0m
+[0;32mI (188) app_init: ESP-IDF:          v5.4.1-dirty[0m
+[0;32mI (193) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (197) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (201) efuse_init: Chip rev:         v0.2[0m
+[0;32mI (204) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (211) heap_init: At 3FC96AF0 len 00052C20 (331 KiB): RAM[0m
+[0;32mI (216) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (221) heap_init: At 3FCF0000 len 00008000 (32 KiB): DRAM[0m
+[0;32mI (226) heap_init: At 600FE11C len 00001ECC (7 KiB): RTCRAM[0m
+[0;32mI (233) spi_flash: detected chip: generic[0m
+[0;32mI (235) spi_flash: flash io: dio[0m
+[0;33mW (238) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;33mW (250) i2c: This driver is an old driver, please migrate your application code to adapt `driver/i2c_master.h`[0m
+[0;32mI (260) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (267) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (273) main_task: Started on CPU0[0m
+[0;32mI (283) main_task: Calling app_main()[0m
+[0;32mI (283) MAIN: I2C khởi tạo thành công trên cổng 0[0m
+[0;32mI (293) AHT20: AHT20 khởi tạo thành công[0m
+[0;32mI (293) BMP280: BMP280 khởi tạo thành công[0m
+[0;32mI (293) MAIN: Task đọc AHT20 và BMP280 được tạo thành công[0m
+[0;32mI (293) BMP280: Nhiệt độ: 29.24 °C[0m
+[0;32mI (303) BMP280: Áp suất: 1002.85 hPa[0m
+[0;32mI (303) BMP280: Độ cao: 86.94 m[0m
+[0;32mI (313) main_task: Returned from app_main()[0m
+[0;32mI (373) AHT20: Raw: 18 8B E9 36 5C 5F[0m
+[0;32mI (373) AHT20: Nhiệt độ: 29.51 °C, Độ ẩm: 54.65 % RH[0m
+[0;32mI (373) MAIN: AHT20 - Nhiệt độ: 29.51 °C, Độ ẩm: 54.65 % RH[0m
+[0;32mI (2313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (2313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (2313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (2453) AHT20: Raw: 18 8B D2 D6 5C 56[0m
+[0;32mI (2453) AHT20: Nhiệt độ: 29.51 °C, Độ ẩm: 54.62 % RH[0m
+[0;32mI (2453) MAIN: AHT20 - Nhiệt độ: 29.51 °C, Độ ẩm: 54.62 % RH[0m
+[0;32mI (4313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (4313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (4313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (4533) AHT20: Raw: 18 8B BF C6 5C E7[0m
+[0;32mI (4533) AHT20: Nhiệt độ: 29.54 °C, Độ ẩm: 54.59 % RH[0m
+[0;32mI (4533) MAIN: AHT20 - Nhiệt độ: 29.54 °C, Độ ẩm: 54.59 % RH[0m
+[0;32mI (6313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (6313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (6313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (6613) AHT20: Raw: 18 8B 92 F6 5C DA[0m
+[0;32mI (6613) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.52 % RH[0m
+[0;32mI (6613) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.52 % RH[0m
+[0;32mI (8313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (8313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (8313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (8693) AHT20: Raw: 18 8B 8D 86 5C A0[0m
+[0;32mI (8693) AHT20: Nhiệt độ: 29.52 °C, Độ ẩm: 54.51 % RH[0m
+[0;32mI (8693) MAIN: AHT20 - Nhiệt độ: 29.52 °C, Độ ẩm: 54.51 % RH[0m
+[0;32mI (10313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (10313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (10313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (10773) AHT20: Raw: 18 8B 7B 96 5C D7[0m
+[0;32mI (10773) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.49 % RH[0m
+[0;32mI (10773) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.49 % RH[0m
+[0;32mI (12313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (12313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (12313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (12853) AHT20: Raw: 18 8B 7E A6 5C D9[0m
+[0;32mI (12853) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.49 % RH[0m
+[0;32mI (12853) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.49 % RH[0m
+[0;32mI (14313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (14313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (14313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (14933) AHT20: Raw: 18 8B 31 66 5C DF[0m
+[0;32mI (14933) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.37 % RH[0m
+[0;32mI (14933) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.37 % RH[0m
+[0;32mI (16313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (16313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (16313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (17013) AHT20: Raw: 18 8B 60 A6 5C C6[0m
+[0;32mI (17013) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.44 % RH[0m
+[0;32mI (17013) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.44 % RH[0m
+[0;32mI (18313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (18313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (18313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (19093) AHT20: Raw: 18 8B 63 96 5D 1C[0m
+[0;32mI (19093) AHT20: Nhiệt độ: 29.55 °C, Độ ẩm: 54.45 % RH[0m
+[0;32mI (19093) MAIN: AHT20 - Nhiệt độ: 29.55 °C, Độ ẩm: 54.45 % RH[0m
+[0;32mI (20313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (20313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (20313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (21173) AHT20: Raw: 18 8B 6E 96 5D 08[0m
+[0;32mI (21173) AHT20: Nhiệt độ: 29.54 °C, Độ ẩm: 54.47 % RH[0m
+[0;32mI (21173) MAIN: AHT20 - Nhiệt độ: 29.54 °C, Độ ẩm: 54.47 % RH[0m
+[0;32mI (22313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (22313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (22313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (23253) AHT20: Raw: 18 8B 6B E6 5C D9[0m
+[0;32mI (23253) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.46 % RH[0m
+[0;32mI (23253) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.46 % RH[0m
+[0;32mI (24313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (24313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (24313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (25333) AHT20: Raw: 18 8B 77 66 5D 4C[0m
+[0;32mI (25333) AHT20: Nhiệt độ: 29.56 °C, Độ ẩm: 54.48 % RH[0m
+[0;32mI (25333) MAIN: AHT20 - Nhiệt độ: 29.56 °C, Độ ẩm: 54.48 % RH[0m
+[0;32mI (26313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (26313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (26313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (27413) AHT20: Raw: 18 8B 68 E6 5D 08[0m
+[0;32mI (27413) AHT20: Nhiệt độ: 29.54 °C, Độ ẩm: 54.46 % RH[0m
+[0;32mI (27413) MAIN: AHT20 - Nhiệt độ: 29.54 °C, Độ ẩm: 54.46 % RH[0m
+[0;32mI (28313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (28313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (28313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (29493) AHT20: Raw: 18 8B 37 B6 5D 58[0m
+[0;32mI (29493) AHT20: Nhiệt độ: 29.56 °C, Độ ẩm: 54.38 % RH[0m
+[0;32mI (29493) MAIN: AHT20 - Nhiệt độ: 29.56 °C, Độ ẩm: 54.38 % RH[0m
+[0;32mI (30313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (30313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (30313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (31573) AHT20: Raw: 18 8B 62 F6 5C FB[0m
+[0;32mI (31573) AHT20: Nhiệt độ: 29.54 °C, Độ ẩm: 54.45 % RH[0m
+[0;32mI (31573) MAIN: AHT20 - Nhiệt độ: 29.54 °C, Độ ẩm: 54.45 % RH[0m
+[0;32mI (32313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (32313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (32313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (33653) AHT20: Raw: 18 8B 45 46 5D 5F[0m
+[0;32mI (33653) AHT20: Nhiệt độ: 29.56 °C, Độ ẩm: 54.40 % RH[0m
+[0;32mI (33653) MAIN: AHT20 - Nhiệt độ: 29.56 °C, Độ ẩm: 54.40 % RH[0m
+[0;32mI (34313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (34313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (34313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (35733) AHT20: Raw: 18 8B 54 06 5D 1E[0m
+[0;32mI (35733) AHT20: Nhiệt độ: 29.55 °C, Độ ẩm: 54.43 % RH[0m
+[0;32mI (35733) MAIN: AHT20 - Nhiệt độ: 29.55 °C, Độ ẩm: 54.43 % RH[0m
+[0;32mI (36313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (36313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (36313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (37813) AHT20: Raw: 18 8B 73 C6 5D 5A[0m
+[0;32mI (37813) AHT20: Nhiệt độ: 29.56 °C, Độ ẩm: 54.47 % RH[0m
+[0;32mI (37813) MAIN: AHT20 - Nhiệt độ: 29.56 °C, Độ ẩm: 54.47 % RH[0m
+[0;32mI (38313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (38313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (38313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (39893) AHT20: Raw: 18 8B 70 A6 5C 91[0m
+[0;32mI (39893) AHT20: Nhiệt độ: 29.52 °C, Độ ẩm: 54.47 % RH[0m
+[0;32mI (39893) MAIN: AHT20 - Nhiệt độ: 29.52 °C, Độ ẩm: 54.47 % RH[0m
+[0;32mI (40313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (40313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (40313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (41973) AHT20: Raw: 18 8B AD 56 5D 64[0m
+[0;32mI (41973) AHT20: Nhiệt độ: 29.56 °C, Độ ẩm: 54.56 % RH[0m
+[0;32mI (41973) MAIN: AHT20 - Nhiệt độ: 29.56 °C, Độ ẩm: 54.56 % RH[0m
+[0;32mI (42313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (42313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (42313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (44053) AHT20: Raw: 18 8B 9D 66 5D 00[0m
+[0;32mI (44053) AHT20: Nhiệt độ: 29.54 °C, Độ ẩm: 54.54 % RH[0m
+[0;32mI (44053) MAIN: AHT20 - Nhiệt độ: 29.54 °C, Độ ẩm: 54.54 % RH[0m
+[0;32mI (44313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (44313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (44313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (46133) AHT20: Raw: 18 8B B0 56 5D 23[0m
+[0;32mI (46133) AHT20: Nhiệt độ: 29.55 °C, Độ ẩm: 54.57 % RH[0m
+[0;32mI (46133) MAIN: AHT20 - Nhiệt độ: 29.55 °C, Độ ẩm: 54.57 % RH[0m
+[0;32mI (46313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (46313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (46313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (48213) AHT20: Raw: 18 8B B5 C6 5C CA[0m
+[0;32mI (48213) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.57 % RH[0m
+[0;32mI (48213) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.57 % RH[0m
+[0;32mI (48313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (48313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (48313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (50293) AHT20: Raw: 18 8B A4 A6 5D 5C[0m
+[0;32mI (50293) AHT20: Nhiệt độ: 29.56 °C, Độ ẩm: 54.55 % RH[0m
+[0;32mI (50293) MAIN: AHT20 - Nhiệt độ: 29.56 °C, Độ ẩm: 54.55 % RH[0m
+[0;32mI (50313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (50313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (50313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (52313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (52313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (52313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (52373) AHT20: Raw: 18 8B 8F 36 5D 35[0m
+[0;32mI (52373) AHT20: Nhiệt độ: 29.55 °C, Độ ẩm: 54.52 % RH[0m
+[0;32mI (52373) MAIN: AHT20 - Nhiệt độ: 29.55 °C, Độ ẩm: 54.52 % RH[0m
+[0;32mI (54313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (54313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (54313) BMP280: Độ cao: 89.42 m[0m
+[0;32mI (54453) AHT20: Raw: 18 8B 8D 36 5C C0[0m
+[0;32mI (54453) AHT20: Nhiệt độ: 29.53 °C, Độ ẩm: 54.51 % RH[0m
+[0;32mI (54453) MAIN: AHT20 - Nhiệt độ: 29.53 °C, Độ ẩm: 54.51 % RH[0m
+[0;32mI (56313) BMP280: Nhiệt độ: 29.36 °C[0m
+[0;32mI (56313) BMP280: Áp suất: 1002.56 hPa[0m
+[0;32mI (56313) BMP280: Độ cao: 89.42 m[0m

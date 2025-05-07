@@ -1,0 +1,2 @@
+source C:/ESP32-PRJ/sensor/sensor/build/bootloader/gdbinit/symbols
+source C:/ESP32-PRJ/sensor/sensor/build/bootloader/gdbinit/connect
