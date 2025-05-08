@@ -2,44 +2,11 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 #include <esp_log.h>
-#include <driver/i2c.h>
-#include "bmp280_read.h"
-#include "aht20.h"
-
-#define I2C_MASTER_SCL_IO           36      // GPIO pin cho SCL
-#define I2C_MASTER_SDA_IO           37      // GPIO pin cho SDA
-#define I2C_MASTER_NUM              I2C_NUM_0 // Cổng I2C
-#define I2C_MASTER_FREQ_HZ          100000  // Tần số I2C
+#include "bmp280/bmp280_read.h"
+#include "aht20/aht20.h"
+#include "i2c_init/i2c_init.h" // Bao gồm file header mới
 
 static const char *TAG = "MAIN";
-
-// Hàm khởi tạo I2C
-static esp_err_t i2c_master_init(i2c_port_t i2c_num, int sda_pin, int scl_pin, uint32_t clk_speed) {
-    esp_err_t ret;
-    i2c_config_t conf = {
-        .mode = I2C_MODE_MASTER,
-        .sda_io_num = sda_pin,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_io_num = scl_pin,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = clk_speed,
-    };
-
-    ret = i2c_param_config(i2c_num, &conf);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Không cấu hình được I2C: %s", esp_err_to_name(ret));
-        return ret;
-    }
-
-    ret = i2c_driver_install(i2c_num, I2C_MODE_MASTER, 0, 0, 0);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Không cài đặt được driver I2C: %s", esp_err_to_name(ret));
-        return ret;
-    }
-
-    ESP_LOGI(TAG, "I2C khởi tạo thành công trên cổng %d", i2c_num);
-    return ESP_OK;
-}
 
 // Task đọc dữ liệu AHT20
 static void aht20_read_task(void *pvParameters) {
