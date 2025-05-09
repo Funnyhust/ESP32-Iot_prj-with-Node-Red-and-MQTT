@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "sensor",
-    "project_version":    "8fca4ce-dirty",
+    "project_version":    "3c8c7cb-dirty",
     "project_path":       "C:/ESP32-PRJ/sensor/sensor",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.4.1",
     "build_dir":          "C:/ESP32-PRJ/sensor/sensor/build",
@@ -1195,7 +1195,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/ESP32-PRJ/sensor/sensor/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/ESP32-PRJ/sensor/sensor/main/sensor.c", "C:/ESP32-PRJ/sensor/sensor/main/i2c_init/i2c_init.c", "C:/ESP32-PRJ/sensor/sensor/main/aht20/aht20.c", "C:/ESP32-PRJ/sensor/sensor/main/bmp280/bmp280_read.c" ],
+            "sources": [ "C:/ESP32-PRJ/sensor/sensor/main/main.c", "C:/ESP32-PRJ/sensor/sensor/main/i2c_init/i2c_init.c", "C:/ESP32-PRJ/sensor/sensor/main/aht20/aht20.c", "C:/ESP32-PRJ/sensor/sensor/main/bmp280/bmp280_read.c", "C:/ESP32-PRJ/sensor/sensor/main/sensor_read/sensor_read.c" ],
             "include_dirs": [ ".", "aht20", "bmp280" ]
         },
         "mbedtls": {
