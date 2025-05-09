@@ -13,8 +13,8 @@
 #define SEND_INTERVAL       pdMS_TO_TICKS(10000) // 10 giây
 
 // Khai báo các task đọc riêng
-void read_aht20_task(void *pvParameters);
+void read_sensor_task(void *pvParameters);
 
-void read_pressure_task(void *pvParameters);
+
 
 #endif // SENSOR_READ_H

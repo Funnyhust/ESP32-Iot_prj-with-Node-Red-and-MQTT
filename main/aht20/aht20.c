@@ -99,9 +99,9 @@ esp_err_t aht20_read_data(aht20_data_t *data) {
 // Xử lý dữ liệu đọc được từ cảm biến
 esp_err_t aht20_process_data(uint8_t *raw_data, aht20_data_t *data) {
     // Debug raw data
-    ESP_LOGI(TAG, "Raw: %02X %02X %02X %02X %02X %02X",
-             raw_data[0], raw_data[1], raw_data[2],
-             raw_data[3], raw_data[4], raw_data[5]);
+    // ESP_LOGI(TAG, "Raw: %02X %02X %02X %02X %02X %02X",
+    //          raw_data[0], raw_data[1], raw_data[2],
+    //          raw_data[3], raw_data[4], raw_data[5]);
 
     // Kiểm tra bit busy (bit 7 của byte 0)
     if (raw_data[0] & 0x80) {
@@ -122,8 +122,8 @@ esp_err_t aht20_process_data(uint8_t *raw_data, aht20_data_t *data) {
     data->humidity = (float)raw_humidity * 100.0 / 1048576.0; // 2^20 = 1048576
     data->temperature = (float)raw_temp * 200.0 / 1048576.0 - 50.0;
 
-    ESP_LOGI(TAG, "Nhiệt độ: %.2f °C, Độ ẩm: %.2f %% RH",
-             data->temperature, data->humidity);
+    // ESP_LOGI(TAG, "Nhiệt độ: %.2f °C, Độ ẩm: %.2f %% RH",
+    //          data->temperature, data->humidity);
 
     return ESP_OK;
 }

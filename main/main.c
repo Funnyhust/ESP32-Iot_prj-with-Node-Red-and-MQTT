@@ -21,16 +21,15 @@ void app_main(void) {
     } else {
         ESP_LOGE("APP", "I2C initialization failed with error code %s", esp_err_to_name(ret));
     }
-    BaseType_t task_created = xTaskCreate(read_aht20_task, "read_aht20_task", 4096, NULL, 5, NULL);
+    bmp280_init();
+    BaseType_t task_created = xTaskCreate(read_sensor_task, "read_aht20_task", 4096, NULL, 5, NULL);
     if (task_created != pdPASS) {
         ESP_LOGE(TAG, "Không tạo được task đọc nhiệt độ AHT20");
         return;
     }
-
-    task_created = xTaskCreate(read_pressure_task, "read_pressure_task", 4096, NULL, 5, NULL);
-    if (task_created != pdPASS) {
-        ESP_LOGE(TAG, "Không tạo được task đọc áp suất BMP280");
-        return;
-    }
-
+//   BaseType_t  task_created = xTaskCreate(bmp280_read_task, "read_aht20_task", 4096, NULL, 5, NULL);
+//     if (task_created != pdPASS) {
+//         ESP_LOGE(TAG, "Không tạo được task đọc nhiệt độ AHT20");
+//         return;
+//     }
 }
