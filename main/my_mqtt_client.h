@@ -1,11 +1,20 @@
-#ifndef MQTT_CLIENT_H
-#define MQTT_CLIENT_H
+// my_mqtt_client.h – Header chứa khai báo hàm MQTT của bạn
 
-// Khởi tạo và bắt đầu MQTT client
+#ifndef MY_MQTT_CLIENT_H
+#define MY_MQTT_CLIENT_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Hàm khởi tạo và kết nối MQTT
 void mqtt_app_start(void);
 
-// Hàm để gửi dữ liệu cảm biến (dạng JSON) lên MQTT broker
-void mqtt_publish_sensor_data(float temp, float hum, float press);
+// Hàm publish dữ liệu dạng chuỗi JSON
+void mqtt_publish_sensor_data(const char *json_str);
 
+#ifdef __cplusplus
+}
+#endif
 
-#endif // MQTT_CLIENT_H
+#endif // MY_MQTT_CLIENT_H

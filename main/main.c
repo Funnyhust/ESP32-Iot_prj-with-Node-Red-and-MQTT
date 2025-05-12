@@ -1,29 +1,21 @@
 #include <stdio.h>
-#include "my_mqtt_client.h"
-#include "sensor_simulator.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_log.h"
 #include "nvs_flash.h"
-#include "esp_event.h"
-#include "esp_netif.h"
+#include "wifi.h"
+#include "my_mqtt_client.h"
 
-void app_main(void) {
-    esp_netif_init();
-    esp_event_loop_create_default();
-    nvs_flash_init();
-
-    // TODO: Thêm Wi-Fi connect ở đây nếu muốn thực tế
-
-    mqtt_app_start();
-
-    while (1) {
-        float temp = get_fake_temperature();
-        float hum = get_fake_humidity();
-        float press = get_fake_pressure();
-
-        mqtt_publish_sensor_data(temp, hum, press);
-
-        vTaskDelay(pdMS_TO_TICKS(5000));  // Gửi mỗi 5 giây
+void app_main(void)
+{
+    // Khởi tạo NVS (bắt buộc để dùng Wi-Fi và MQTT)
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES || ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
     }
+    ESP_ERROR_CHECK(ret);
+
+    // Khởi tạo và kết nối Wi-Fi
+    wifi_init_sta();
+
+    // Khởi tạo MQTT
+    mqtt_app_start();
 }
