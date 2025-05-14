@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "sensor",
-    "project_version":    "adc50d3-dirty",
+    "project_version":    "a625950-dirty",
     "project_path":       "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT",
     "idf_path":           "D:/Espressif/frameworks/esp-idf-v5.1.6",
     "build_dir":          "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/build",
@@ -790,8 +790,8 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/build/esp-idf/main/libmain.a",
-            "sources": [ "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/main.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/i2c_init/i2c_init.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/aht20/aht20.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/bmp280/bmp280_read.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/sensor_read/sensor_read.c" ],
-            "include_dirs": [ ".", "aht20", "bmp280" ]
+            "sources": [ "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/aht20/aht20.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/bmp280/bmp280_read.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/button/button.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/i2c_init/i2c_init.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/main.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/mqtt/mqtt.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/sensor_read/sensor_read.c", "D:/ESP_PRJ/sensor/ESP32-Iot_prj-with-Node-Red-and-MQTT/main/wifi/wifi.c" ],
+            "include_dirs": [ "." ]
         },
         "mbedtls": {
             "alias": "idf::mbedtls",
@@ -2077,7 +2077,7 @@
             "priv_reqs": [],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "include_dirs": [ ".", "aht20", "bmp280" ]
+            "include_dirs": [ "." ]
         }
     },
     "debug_prefix_map_gdbinit": ""

@@ -1,3 +1,9 @@
 {
-    "idf.pythonInstallPath": "D:\\Espressif\\tools\\idf-python\\3.11.2\\python.exe"
+    "idf.pythonInstallPath": "D:\\Espressif\\tools\\idf-python\\3.11.2\\python.exe",
+    "files.associations": {
+        "nvs.h": "c",
+        "mqtt.h": "c",
+        "stdint.h": "c",
+        "i2c_init.h": "c"
+    }
 }
