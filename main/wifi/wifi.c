@@ -11,7 +11,7 @@
 
 // Định nghĩa thông tin Wi-Fi
 static const char *TAG = "WIFI";
-#define WIFI_SSID "Truong 5G"
+#define WIFI_SSID "Duong"
 #define WIFI_PASS "12345678"
 
 // Semaphore để báo hiệu Wi-Fi kết nối

@@ -7,9 +7,9 @@
 
 // Định nghĩa thông tin MQTT
 static const char *TAG = "MQTT";
-#define MQTT_BROKER_URI "mqtt://192.168.0.2:1883"
-#define MQTT_CLIENT_ID "esp32_client"
-#define TOPIC_PUB "mqtt/test"
+#define MQTT_BROKER_URI  "mqtt://192.168.89.137:1883"
+#define MQTT_CLIENT_ID "MQTT_ESP32_Client"
+#define TOPIC_PUB "sensor/data"
 
 static esp_mqtt_client_handle_t client;
 

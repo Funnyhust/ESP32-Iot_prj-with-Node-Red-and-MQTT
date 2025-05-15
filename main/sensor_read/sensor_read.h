@@ -11,6 +11,8 @@
 #define HUMIDITY_THRESHOLD  5.0f    // %
 #define PRESSURE_THRESHOLD  5.0f    // hPa
 #define SEND_INTERVAL       pdMS_TO_TICKS(10000) // 10 giây
+#define TOPIC_PUB           "sensor/data" // Topic MQTT để gửi dữ liệu
+
 
 // Khai báo các task đọc riêng
 void read_sensor_task(void *pvParameters);
