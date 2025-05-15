@@ -4,6 +4,7 @@
         "nvs.h": "c",
         "mqtt.h": "c",
         "stdint.h": "c",
-        "i2c_init.h": "c"
+        "i2c_init.h": "c",
+        "sensor_read.h": "c"
     }
 }
