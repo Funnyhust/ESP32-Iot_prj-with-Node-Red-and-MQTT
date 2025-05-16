@@ -120,13 +120,6 @@ void app_main(void) {
         ESP_LOGE(TAG, "MQTT initialization failed: %s", esp_err_to_name(ret));
         return;
     }
-
-    if (mqtt_subscribe("control/relay", 0)) {
-        ESP_LOGI(TAG, "Đăng ký topic control/relay thành công");
-    } else {
-        ESP_LOGE(TAG, "Đăng ký topic control/relay thất bại");
-        return;
-    }
     mqtt_register_callback(mqtt_callback);
     ESP_LOGI(TAG, "MQTT khởi động thành công");
 

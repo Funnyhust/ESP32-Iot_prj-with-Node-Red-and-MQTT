@@ -21,7 +21,7 @@ void mqtt_register_callback(void (*callback)(const char *, uint32_t, const char 
 
 int mqtt_handle_received_data(const char *topic, int topic_len, const char *data, int data_len) {
     // Đây chỉ là hàm parse đơn giản: trả về 1 hoặc 0 nếu topic "sensor/control"
-    if (strncmp(topic, "sensor/control", topic_len) == 0 && data_len == 1) {
+    if (topic_len == strlen("control/relay") && strncmp(topic, "control/relay", topic_len) == 0) {
         if (data[0] == '1') {
             return 1;
         } else if (data[0] == '0') {
@@ -50,7 +50,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
             break;
 
         case MQTT_EVENT_SUBSCRIBED:
-            ESP_LOGI(TAG, "MQTT subscribed: ");
+            ESP_LOGI(TAG, "MQTT subscribed: %.*s", event->topic_len, event->topic);
             break;
         default:
             break;

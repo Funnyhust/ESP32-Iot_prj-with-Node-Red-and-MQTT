@@ -51,7 +51,7 @@ esp_err_t button_init(void) {
 
     // Tạo task
     if (button_task_handle == NULL) {
-        BaseType_t task_created = xTaskCreate(button_task, "Button Task", 2048, NULL, 5, &button_task_handle);
+        BaseType_t task_created = xTaskCreate(button_task, "Button Task", 4096, NULL, 5, &button_task_handle);
         if (task_created != pdPASS) {
             ESP_LOGE(TAG, "Failed to create button task");
             return ESP_FAIL;
