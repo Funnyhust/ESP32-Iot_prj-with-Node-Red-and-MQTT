@@ -15,16 +15,18 @@
 static const char *TAG = "MAIN";
 static bool relay1_status = false;
 
+
+
 void button_callback(btn_event_e event, uint8_t button_id) {
     if (event == PRESSED) {
         relay1_status = !relay1_status;
         if (relay1_status) {
             relay(1, "ON");
-            mqtt_publish_float("relay/control", "relay", 1);
+            mqtt_publish_float("sensor/data", "relay", 1);
             ESP_LOGI(TAG, "Button %d pressed: Relay 1 ON", button_id);
         } else {
             relay(1, "OFF");
-            mqtt_publish_float("relay/control", "relay", 0);
+            mqtt_publish_float("sensor/data", "relay", 0);
             ESP_LOGI(TAG, "Button %d pressed: Relay 1 OFF", button_id);
         }
     }
@@ -123,6 +125,13 @@ void app_main(void) {
     mqtt_register_callback(mqtt_callback);
     ESP_LOGI(TAG, "MQTT khởi động thành công");
 
+     // Khởi tạo mutex
+    sensor_data_mutex = xSemaphoreCreateMutex();
+    if (sensor_data_mutex == NULL) {
+        ESP_LOGE(TAG, "Không tạo được mutex");
+        return;
+    }
+
     // Tạo task đọc cảm biến
     ESP_LOGI(TAG, "Tạo task đọc cảm biến...");
     BaseType_t task_created = xTaskCreate(read_sensor_task, "read_sensor_task", 4096, NULL, 5, NULL);
@@ -131,4 +140,11 @@ void app_main(void) {
         return;
     }
     ESP_LOGI(TAG, "Task đọc cảm biến được tạo thành công");
+    // Tạo task cảnh báo
+    ESP_LOGI(TAG, "Tạo task cảnh báo...");
+    task_created = xTaskCreate(warning_task, "warning_task", 4096, NULL, 5, NULL);
+    if (task_created != pdPASS) {
+        ESP_LOGE(TAG, "Không tạo được task cảnh báo");
+        return;
+    }
 }

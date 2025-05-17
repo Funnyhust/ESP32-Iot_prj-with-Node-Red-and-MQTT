@@ -149,17 +149,3 @@ esp_err_t bmp280_read_data(bmp280_data_t *data) {
 }
 
 // Task đọc dữ liệu BMP280
-void bmp280_read_task(void *pvParameters) {
-    bmp280_data_t data;
-
-    while (1) {
-        if (bmp280_read_data(&data) == ESP_OK) {
-            ESP_LOGI(TAG, "Nhiệt độ: %.2f °C", data.temperature);
-            ESP_LOGI(TAG, "Áp suất: %.2f hPa", data.pressure);
-            ESP_LOGI(TAG, "Độ cao: %.2f m", data.altitude);
-        } else {
-            ESP_LOGE(TAG, "Không đọc được dữ liệu BMP280");
-        }
-        vTaskDelay(pdMS_TO_TICKS(2000)); // Chờ 2 giây
-    }
-}

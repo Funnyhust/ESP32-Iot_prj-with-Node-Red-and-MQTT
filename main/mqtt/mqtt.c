@@ -5,7 +5,7 @@
 #include <string.h>
 
 static const char *TAG = "MQTT";
-#define MQTT_BROKER_URI  "mqtt://192.168.89.137:1883"
+#define MQTT_BROKER_URI  "mqtt://10.10.30.30:1883"
 #define MQTT_CLIENT_ID   "MQTT_ESP32_Client"
 #define TOPIC_PUB        "sensor/data"
 #define TOPIC_SUB        "control/relay"
@@ -39,7 +39,6 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
             ESP_LOGI(TAG, "MQTT connected");
             esp_mqtt_client_subscribe(client, TOPIC_SUB, 1);
             ESP_LOGI(TAG, "Subscribed to %s", TOPIC_SUB);
-            mqtt_publish_float(TOPIC_PUB, "temperature", 25.5);
             break;
         case MQTT_EVENT_DATA:
             ESP_LOGI(TAG, "MQTT data received: topic=%.*s, data=%.*s", event->topic_len, event->topic, event->data_len, event->data);
@@ -96,7 +95,9 @@ esp_err_t mqtt_publish_float(const char *topic, const char *key, float value) {
     if (!client) return ESP_FAIL;
     cJSON *root = cJSON_CreateObject();
     if (!root) return ESP_FAIL;
-    cJSON_AddNumberToObject(root, key, value);
+    char value_str[16];
+    snprintf(value_str, sizeof(value_str), "%.2f", value);
+    cJSON_AddStringToObject(root, key, value_str);
     char *json_str = cJSON_PrintUnformatted(root);
     cJSON_Delete(root);
     if (!json_str) return ESP_FAIL;

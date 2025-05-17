@@ -1,7 +1,7 @@
 {
     "version":            "1.2",
     "project_name":       "sensor",
-    "project_version":    "bcc259c-dirty",
+    "project_version":    "305d77d-dirty",
     "project_path":       "C:/ESP32-PRJ/sensor/sensor",
     "idf_path":           "C:/Espressif/frameworks/esp-idf-v5.4.1",
     "build_dir":          "C:/ESP32-PRJ/sensor/sensor/build",

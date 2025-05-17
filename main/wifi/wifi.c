@@ -11,8 +11,8 @@
 
 // Định nghĩa thông tin Wi-Fi
 static const char *TAG = "WIFI";
-#define WIFI_SSID "Duong"
-#define WIFI_PASS "12345678"
+#define WIFI_SSID "ALL LUMI"
+#define WIFI_PASS "lumivn274"
 
 // Semaphore để báo hiệu Wi-Fi kết nối
 static SemaphoreHandle_t wifi_connected_semaphore = NULL;

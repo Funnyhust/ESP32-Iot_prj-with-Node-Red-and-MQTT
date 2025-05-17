@@ -5,18 +5,21 @@
 #include "bmp280/bmp280_read.h"
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
+#include <freertos/semphr.h> // Thêm include cho SemaphoreHandle_t
 
-// Ngưỡng thay đổi để quyết định gửi
-#define TEMP_THRESHOLD      1.0f    // °C
-#define HUMIDITY_THRESHOLD  5.0f    // %
-#define PRESSURE_THRESHOLD  5.0f    // hPa
-#define SEND_INTERVAL       pdMS_TO_TICKS(10000) // 10 giây
-#define TOPIC_PUB           "sensor/data" // Topic MQTT để gửi dữ liệu
+// Định nghĩa kiểu sensor_data_t
+typedef struct {
+    float temperature;
+    float humidity;
+    float pressure;
+} sensor_data_t;
 
+// Khai báo biến toàn cục
+extern sensor_data_t sensor_data;
+extern SemaphoreHandle_t sensor_data_mutex;
 
-// Khai báo các task đọc riêng
+// Khai báo các task
 void read_sensor_task(void *pvParameters);
-
-
+void warning_task(void *pvParameters);
 
 #endif // SENSOR_READ_H
