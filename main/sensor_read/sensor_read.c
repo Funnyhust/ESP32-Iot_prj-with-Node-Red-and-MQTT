@@ -106,11 +106,11 @@ void warning_task(void *pvParameters) {
 
         // Kiểm tra nhiệt độ và điều khiển relay
         if (temperature >= MAX_TEMP && !last_relay_status) {
-            ESP_LOGW(TAG, "Nhiệt độ cao! Tắt relay");
+            ESP_LOGW(TAG, "Nhiệt độ cao! Bật relay");
             relay(2, "ON");
             last_relay_status = true;
         } else if (temperature <= MIN_TEMP && last_relay_status) {
-            ESP_LOGI(TAG, "Nhiệt độ thấp. Bật relay");
+            ESP_LOGI(TAG, "Nhiệt độ thấp. Tắt relay");
             relay(2, "OFF");
             last_relay_status = false;
         }

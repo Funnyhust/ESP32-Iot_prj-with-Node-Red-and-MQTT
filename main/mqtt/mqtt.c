@@ -5,7 +5,7 @@
 #include <string.h>
 
 static const char *TAG = "MQTT";
-#define MQTT_BROKER_URI  "mqtt://10.10.30.30:1883"
+#define MQTT_BROKER_URI  "mqtt://10.10.30.162:1883"
 #define MQTT_CLIENT_ID   "MQTT_ESP32_Client"
 #define TOPIC_PUB        "sensor/data"
 #define TOPIC_SUB        "control/relay"
@@ -37,6 +37,7 @@ static void mqtt_event_handler(void *handler_args, esp_event_base_t base, int32_
     switch (event->event_id) {
         case MQTT_EVENT_CONNECTED:
             ESP_LOGI(TAG, "MQTT connected");
+            esp_mqtt_client_publish(client, "esp32/status", "online", 0, 1, 1);
             esp_mqtt_client_subscribe(client, TOPIC_SUB, 1);
             ESP_LOGI(TAG, "Subscribed to %s", TOPIC_SUB);
             break;
@@ -60,6 +61,15 @@ esp_err_t mqtt_init(void) {
     esp_mqtt_client_config_t mqtt_cfg = {
         .broker.address.uri = MQTT_BROKER_URI,
         .credentials.client_id = MQTT_CLIENT_ID,
+        .session = {
+        .keepalive = 10, // Giữ kết nối trong 10 giây
+        .last_will = {
+            .topic = "esp32/status", // Last Will Topic
+            .msg = "offline",        // Last Will Message
+            .qos = 1,                // QoS cho LWT
+            .retain = true           // Retain LWT
+        }
+    }
     };
 
     client = esp_mqtt_client_init(&mqtt_cfg);
